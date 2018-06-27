@@ -1,4 +1,4 @@
-version: 0.2
+pversion: 0.2
 
 phases:
   pre_build:
@@ -7,8 +7,8 @@ phases:
       - echo $RUN_ENV $RUN_REGION $RUN_SERVICE
   build:
     commands:
-      - bash -lc misc/aws/codebuild/www/archive.sh
+      - bash -lc test1.sh
   post_build:
     commands:
-      - bash -lc misc/aws/codebuild/www/post_notification.sh
+      - bash -lc test2.sh
 
