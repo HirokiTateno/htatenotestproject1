@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - export BUILD_TIME="$(date +%s)"
+      - echo $RUN_ENV $RUN_REGION $RUN_SERVICE
+  build:
+    commands:
+      - bash -lc misc/aws/codebuild/www/archive.sh
+  post_build:
+    commands:
+      - bash -lc misc/aws/codebuild/www/post_notification.sh
+
